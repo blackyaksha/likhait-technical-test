@@ -8,8 +8,9 @@ FROM ruby:$RUBY_VERSION-slim
 WORKDIR /rails
 
 # Install base packages
+# Added libyaml-dev, required to build gem for Rails
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential ca-certificates default-mysql-client default-libmysqlclient-dev git && \
+    apt-get install --no-install-recommends -y build-essential ca-certificates default-mysql-client default-libmysqlclient-dev git libyaml-dev && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Install application gems
