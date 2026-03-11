@@ -18,7 +18,10 @@ CREATE TABLE IF NOT EXISTS expenses (
   description VARCHAR(255) NOT NULL,
   amount DECIMAL(10,2) NOT NULL,
   category_id INT NOT NULL,
-  payer_name VARCHAR(100) NOT NULL,
+  -- added date field since the seed.rb has a date field and will cause error if not added
+  date DATE NOT NULL,
+  -- player_name will not be used as it is not included in the seed.rb and will cause error if added
+  --payer_name VARCHAR(100) NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE RESTRICT,
