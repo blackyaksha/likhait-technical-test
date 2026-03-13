@@ -48,6 +48,7 @@ export function ExpenseForm({
   };
 
   // Map categories to options for SelectBox
+  // Used the data from the api (database) instead of the hardcoaded data
   const categoryOptions = categories.map((category) => ({
     value: category.name,
     label: category.name,
