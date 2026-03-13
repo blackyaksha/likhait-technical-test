@@ -95,6 +95,7 @@ export function ExpenseForm({
         value={formData.date}
         onChange={(e) => handleChange("date", e.target.value)}
         error={errors.date}
+        max = {new Date().toISOString().split("T")[0]} // Added max to prevent the user from selecting a future date
         fullWidth
         required
       />

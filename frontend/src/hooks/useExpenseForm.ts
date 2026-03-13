@@ -45,10 +45,12 @@ export function useExpenseForm({ initialData, onSubmit }: UseExpenseFormProps) {
       newErrors.category = "Category is required";
     }
 
+    // Added validation to prevent selecting a future date
     if (!formData.date) {
       newErrors.date = "Date is required";
+    } else if (formData.date > new Date().toISOString().split("T")[0]) {
+      newErrors.date = "Date cannot be in the future";
     }
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
