@@ -162,7 +162,7 @@ const HistoryPage: React.FC = () => {
             onYearChange={handleYearChange}
           />
         </div>
-        <div style={{ display: "flex", gap: "12px" }}>
+        <div style={{ display: "flex", gap: "12px" }}> //Added "Add Category" button next to "Add Expense" button
         <Button variant="primary" onClick={() => setIsCategoryModalOpen(true)}>
           Add Category
         </Button>
@@ -209,7 +209,7 @@ const HistoryPage: React.FC = () => {
         />
       </Modal>
 
-      <Modal
+      <Modal //This modal is for adding new category, it will open when "Add Category" button is clicked
         isOpen={isCategoryModalOpen}
         onClose={() => setIsCategoryModalOpen(false)}
         title="Add New Category"
