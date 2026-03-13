@@ -152,6 +152,7 @@ const HistoryPage: React.FC = () => {
     color: COLORS.secondary.s08,
   };
 
+  // Added "Add Category" button next to "Add Expense" button
   return (
     <div style={pageStyle}>
       <div style={headerStyle}>
@@ -162,7 +163,7 @@ const HistoryPage: React.FC = () => {
             onYearChange={handleYearChange}
           />
         </div>
-        <div style={{ display: "flex", gap: "12px" }}> //Added "Add Category" button next to "Add Expense" button
+        <div style={{ display: "flex", gap: "12px" }}>
         <Button variant="primary" onClick={() => setIsCategoryModalOpen(true)}>
           Add Category
         </Button>
