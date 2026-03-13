@@ -8,8 +8,9 @@ FROM ruby:$RUBY_VERSION-slim
 WORKDIR /rails
 
 # Install base packages
+# Added libyaml-dev, required to build gem for Rails
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential ca-certificates default-mysql-client default-libmysqlclient-dev git && \
+    apt-get install --no-install-recommends -y build-essential ca-certificates default-mysql-client default-libmysqlclient-dev git libyaml-dev && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Install application gems
@@ -30,5 +31,6 @@ RUN bundle exec bootsnap precompile --gemfile app/ lib/
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start the server by default
-EXPOSE 3000
-CMD ["rails", "server", "-b", "0.0.0.0"]
+# Added "bundle" and "exec" to ensure the server runs with the correct gem environment
+# gems are installed to "vendor/bundle" which is not in the default path, resulting to adding "bundle" and "exec"
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]

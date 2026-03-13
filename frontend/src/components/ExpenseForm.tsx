@@ -2,9 +2,9 @@
  * Form component for adding/editing expenses
  */
 
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { ExpenseFormData } from "../types";
-import { EXPENSE_CATEGORIES } from "../constants/categories";
+import { fetchCategories } from "../services/api";
 import { TextField, SelectBox, Button } from "../vibes";
 import { useExpenseForm } from "../hooks/useExpenseForm";
 
@@ -26,6 +26,14 @@ export function ExpenseForm({
       initialData,
       onSubmit,
     });
+  
+  // Fetch categories for the category select box
+  const [categories, setCategories] = useState<Array<{id: number; name: string}>>([]);
+  
+  // Fetch categories
+  useEffect(() => {
+    fetchCategories().then(setCategories);
+  }, []);
 
   const formStyle: React.CSSProperties = {
     display: "flex",
@@ -39,9 +47,11 @@ export function ExpenseForm({
     marginTop: "0.5rem",
   };
 
-  const categoryOptions = EXPENSE_CATEGORIES.map((category) => ({
-    value: category,
-    label: category,
+  // Map categories to options for SelectBox
+  // Used the data from the api (database) instead of the hardcoaded data
+  const categoryOptions = categories.map((category) => ({
+    value: category.name,
+    label: category.name,
   }));
 
   return (
@@ -85,6 +95,7 @@ export function ExpenseForm({
         value={formData.date}
         onChange={(e) => handleChange("date", e.target.value)}
         error={errors.date}
+        max = {new Date().toISOString().split("T")[0]} // Added max to prevent the user from selecting a future date
         fullWidth
         required
       />
