@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getExpenses, createExpense } from "../services/api";
+import { getExpenses, createExpense, createCategory } from "../services/api";
 import { Expense, ExpenseFormData } from "../types";
 import YearNavigation from "../components/YearNavigation";
 import { MonthNavigation } from "../components/MonthNavigation";
@@ -13,6 +13,8 @@ const HistoryPage: React.FC = () => {
   const [expenses, setExpenses] = useState<Expense[]>([]);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCategoryModalOpen, setIsCategoryModalOpen] = useState(false);
+  const [newCategoryName, setNewCategoryName] = useState("");
 
   // Get year and month from URL params, default to current date if not provided
   const getInitialYearMonth = () => {
@@ -82,6 +84,18 @@ const HistoryPage: React.FC = () => {
     }
   };
 
+  // Adding function for handling added category
+  const handleAddCategory = async () => {
+    try {
+      await createCategory(newCategoryName);
+      setIsCategoryModalOpen(false);
+      setNewCategoryName("");
+    } catch (error) {
+      console.error("Error creating expense", error);
+      throw error;
+    }
+  }
+
   // Calculate category breakdown
   const categoryData = expenses.reduce(
     (acc, expense) => {
@@ -148,9 +162,14 @@ const HistoryPage: React.FC = () => {
             onYearChange={handleYearChange}
           />
         </div>
+        <div style={{ display: "flex", gap: "12px" }}>
+        <Button variant="primary" onClick={() => setIsCategoryModalOpen(true)}>
+          Add Category
+        </Button>
         <Button variant="primary" onClick={() => setIsModalOpen(true)}>
           Add Expense
         </Button>
+        </div>
       </div>
 
       <MonthNavigation
@@ -189,7 +208,26 @@ const HistoryPage: React.FC = () => {
           onCancel={() => setIsModalOpen(false)}
         />
       </Modal>
-    </div>
+
+      <Modal
+        isOpen={isCategoryModalOpen}
+        onClose={() => setIsCategoryModalOpen(false)}
+        title="Add New Category"
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+          <input
+            type="text"
+            placeholder="Category name"
+            value={newCategoryName}
+            onChange={(e) => setNewCategoryName(e.target.value)}
+            style={{ padding: "8px", fontSize: "16px", borderRadius: "4px", border: "1px solid #ccc" }}
+          />
+          <Button variant="primary" onClick={handleAddCategory}>
+            Save Category
+          </Button>
+        </div>
+      </Modal>
+    </div>      
   );
 };
 
