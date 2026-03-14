@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+﻿source 'https://rubygems.org'
 
 version = File.read("#{__dir__}/lib/concurrent-ruby/concurrent/version.rb")[/'(.+)'/, 1] or raise
 edge_version = File.read("#{__dir__}/lib/concurrent-ruby-edge/concurrent/edge/version.rb")[/'(.+)'/, 1] or raise

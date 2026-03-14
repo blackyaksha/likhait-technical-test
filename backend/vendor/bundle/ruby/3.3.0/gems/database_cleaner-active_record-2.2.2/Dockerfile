@@ -1,4 +1,4 @@
-ARG RUBY_VERSION=3.3
+﻿ARG RUBY_VERSION=3.3
 FROM ruby:${RUBY_VERSION}
 
 # Set the working directory in the container

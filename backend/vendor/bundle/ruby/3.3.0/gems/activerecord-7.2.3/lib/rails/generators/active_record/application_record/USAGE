@@ -1,4 +1,4 @@
-Description:
+﻿Description:
     Generates an `ApplicationRecord` base class for other models to inherit from.
 
 Example:

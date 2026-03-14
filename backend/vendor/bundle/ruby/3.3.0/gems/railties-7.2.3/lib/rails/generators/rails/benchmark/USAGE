@@ -1,4 +1,4 @@
-Description:
+﻿Description:
     Generate benchmarks to compare performance optimizations.
 
     Makes use of the `benchmark-ips` gem as it provides a number of benefits like:

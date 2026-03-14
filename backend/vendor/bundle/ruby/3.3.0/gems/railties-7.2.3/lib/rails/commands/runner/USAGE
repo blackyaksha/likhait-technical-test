@@ -1,4 +1,4 @@
-Description:
+﻿Description:
     The Rails `runner` allows running Ruby code in the context of your application.
 
 Examples:

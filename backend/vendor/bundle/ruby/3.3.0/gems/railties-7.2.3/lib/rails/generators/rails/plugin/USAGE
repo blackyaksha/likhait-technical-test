@@ -1,4 +1,4 @@
-Description:
+﻿Description:
     The `rails plugin new` command creates a Rails plugin with the ability
     to run tests using a dummy Rails application. A plugin is a gem with
     either a railtie or an engine.

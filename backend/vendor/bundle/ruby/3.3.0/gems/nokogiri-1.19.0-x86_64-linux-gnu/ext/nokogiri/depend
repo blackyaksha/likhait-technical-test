@@ -1,4 +1,4 @@
-# -*-makefile-*-
+﻿# -*-makefile-*-
 # DO NOT DELETE
 
 gumbo.o: $(srcdir)/nokogiri.h

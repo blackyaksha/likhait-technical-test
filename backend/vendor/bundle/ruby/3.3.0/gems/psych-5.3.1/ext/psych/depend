@@ -1,4 +1,4 @@
-$(TARGET_SO): $(LIBYAML)
+﻿$(TARGET_SO): $(LIBYAML)
 
 libyaml $(LIBYAML):
 	cd libyaml && $(MAKE)

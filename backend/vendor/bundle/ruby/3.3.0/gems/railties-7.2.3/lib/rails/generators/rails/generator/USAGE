@@ -1,4 +1,4 @@
-Description:
+﻿Description:
     Generates a new generator at lib/generators. Pass the generator name as an argument,
     either CamelCased or snake_cased.
 

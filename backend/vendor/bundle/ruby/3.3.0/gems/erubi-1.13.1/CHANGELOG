@@ -1,4 +1,4 @@
-=== 1.13.1 (2024-12-19)
+﻿=== 1.13.1 (2024-12-19)
 
 * Avoid spurious frozen string literal warnings for chilled strings when using Ruby 3.4 (jeremyevans)
 

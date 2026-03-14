@@ -1,4 +1,4 @@
-# Use this Dockerfile to create minimal reproductions of issues
+﻿# Use this Dockerfile to create minimal reproductions of issues
 
 FROM ruby:3.2
 

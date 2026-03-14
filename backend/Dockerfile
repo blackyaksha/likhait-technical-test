@@ -1,4 +1,4 @@
-# syntax = docker/dockerfile:1
+﻿# syntax = docker/dockerfile:1
 
 # Use Ruby 3.3.7
 ARG RUBY_VERSION=3.3.7
@@ -24,11 +24,18 @@ RUN bundle config set --local deployment 'false' && \
 # Copy application code
 COPY . .
 
+# Fix potential Windows CRLF line ending issues for entrypoint scripts
+RUN apt-get update -qq && apt-get install -y dos2unix && \
+    dos2unix /rails/bin/docker-entrypoint && \
+    chmod +x /rails/bin/docker-entrypoint
+
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile --gemfile app/ lib/
 
 # Entrypoint prepares the database
-ENTRYPOINT ["/rails/bin/docker-entrypoint"]
+# Use bash to run the entrypoint to avoid "exec format error"
+# which may occur when scripts are created on Windows environments.
+ENTRYPOINT ["bash", "/rails/bin/docker-entrypoint"]
 
 # Start the server by default
 # Added "bundle" and "exec" to ensure the server runs with the correct gem environment

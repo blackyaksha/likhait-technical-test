@@ -1,4 +1,4 @@
-#!/usr/bin/env -S ruby
+﻿#!/usr/bin/env -S ruby
 
 require_relative "../lib/minitest/sprint"
 

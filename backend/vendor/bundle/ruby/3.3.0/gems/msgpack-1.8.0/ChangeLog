@@ -1,4 +1,4 @@
-2025-02-06 1.8.0
+﻿2025-02-06 1.8.0
 
 * Numerous small optimizations.
 * Added `key_cache` option to `Unpacker`.

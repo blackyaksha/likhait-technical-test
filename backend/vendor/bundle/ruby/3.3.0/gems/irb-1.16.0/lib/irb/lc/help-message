@@ -1,4 +1,4 @@
-Usage:  irb.rb [options] [programfile] [arguments]
+﻿Usage:  irb.rb [options] [programfile] [arguments]
   -f                Don't initialize from configuration file.
   -d                Set $DEBUG and $VERBOSE to true (same as 'ruby -d').
   -r load-module    Require load-module (same as 'ruby -r').

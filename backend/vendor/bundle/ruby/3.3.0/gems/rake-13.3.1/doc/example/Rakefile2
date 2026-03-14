@@ -1,4 +1,4 @@
-# Example Rakefile -*- ruby -*-
+﻿# Example Rakefile -*- ruby -*-
 # Using the power of Ruby
 
 task :default => [:main]

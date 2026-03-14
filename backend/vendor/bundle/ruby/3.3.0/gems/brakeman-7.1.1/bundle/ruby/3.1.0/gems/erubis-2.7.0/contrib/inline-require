@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+﻿#!/usr/bin/env ruby
 
 ###
 ### inline-require - expand 'require "foo"' into inline code

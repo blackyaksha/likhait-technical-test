@@ -1,4 +1,4 @@
-Description: 
+﻿Description: 
     The Rails `encrypted` commands provide access to encrypted files or configurations.
     See the `Rails.application.encrypted` documentation for using them in your app.
 

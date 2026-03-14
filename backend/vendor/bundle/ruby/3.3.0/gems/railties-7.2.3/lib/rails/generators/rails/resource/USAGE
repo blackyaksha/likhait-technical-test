@@ -1,4 +1,4 @@
-Description:
+﻿Description:
     Generates a new resource including an empty model and controller suitable
     for a RESTful, resource-oriented application. Pass the singular model name,
     either CamelCased or under_scored, as the first argument, and an optional

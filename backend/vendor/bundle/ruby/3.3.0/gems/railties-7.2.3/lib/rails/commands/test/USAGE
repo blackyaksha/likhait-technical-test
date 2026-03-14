@@ -1,4 +1,4 @@
-Examples:
+﻿Examples:
     You can run a single test by appending a line number to a filename:
 
         <%= executable %> test/models/user_test.rb:27

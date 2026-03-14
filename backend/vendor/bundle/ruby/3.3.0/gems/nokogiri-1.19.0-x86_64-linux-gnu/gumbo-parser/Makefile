@@ -1,4 +1,4 @@
-.PHONY: all clean check coverage
+﻿.PHONY: all clean check coverage
 
 gumbo_objs := $(patsubst %.c,build/%.o,$(wildcard src/*.c))
 test_objs := $(patsubst %.cc,build/%.o,$(wildcard test/*.cc))

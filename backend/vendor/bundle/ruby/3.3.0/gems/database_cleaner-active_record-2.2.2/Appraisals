@@ -1,4 +1,4 @@
-appraise "rails-6.1" do
+﻿appraise "rails-6.1" do
   gem "rails", "~> 6.1.0"
   gem "sqlite3", "~> 1.5"
 end

@@ -1,4 +1,4 @@
-Description:
+﻿Description:
     Generates a new controller and its views. Pass the controller name, either
     CamelCased or under_scored, and a list of actions as arguments.
 

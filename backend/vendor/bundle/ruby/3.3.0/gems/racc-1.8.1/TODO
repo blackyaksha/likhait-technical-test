@@ -1,4 +1,4 @@
-* check 'error' token handling.
+﻿* check 'error' token handling.
 * interactive transition table monitor.
 * support backtracking.
 * output Ruby extension library?

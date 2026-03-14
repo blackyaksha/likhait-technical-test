@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+﻿#!/usr/bin/env ruby
 #Adjust path in case called directly and not through gem
 $:.unshift "#{File.expand_path(File.dirname(__FILE__))}/../lib"
 

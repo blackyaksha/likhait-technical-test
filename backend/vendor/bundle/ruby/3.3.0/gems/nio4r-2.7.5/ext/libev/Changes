@@ -1,4 +1,4 @@
-Revision history for libev, a high-performance and full-featured event loop.
+﻿Revision history for libev, a high-performance and full-featured event loop.
 
 TODO: for next ABI/API change, consider moving EV__IOFDSSET into io->fd instead and provide a getter.
 TODO: document EV_TSTAMP_T
@@ -268,7 +268,7 @@ TODO: document EV_TSTAMP_T
         - ev_run will now always update the current loop time - it erroneously
           didn't when idle watchers were active, causing timers not to fire.
         - fix a bug where a timeout of zero caused the timer not to fire
-          in the libevent emulation (testcase by Péter Szabó).
+          in the libevent emulation (testcase by PÃ©ter SzabÃ³).
 	- applied win32 fixes by Michael Lenaghan (also James Mansion).
 	- replace EV_MINIMAL by EV_FEATURES.
         - prefer EPOLL_CTL_ADD over EPOLL_CTL_MOD in some more cases, as it
@@ -435,7 +435,7 @@ TODO: document EV_TSTAMP_T
         - fork detection in ev_embed now stops and restarts the watcher
           automatically.
         - EXPERIMENTAL: default the method to operator () in ev++.h,
-          to make it nicer to use functors (requested by Benedek László).
+          to make it nicer to use functors (requested by Benedek LÃ¡szlÃ³).
         - fixed const object callbacks in ev++.h.
         - replaced loop_ref argument of watcher.set (loop) by a direct
           ev_loop * in ev++.h, to avoid clashes with functor patch.

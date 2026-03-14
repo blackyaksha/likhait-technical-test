@@ -1,4 +1,4 @@
-Description:
+﻿Description:
     Generates a new mailbox class in app/mailboxes and invokes your template
     engine and test framework generators.
 
