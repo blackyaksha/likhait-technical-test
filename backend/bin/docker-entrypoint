@@ -1,4 +1,8 @@
-#!/bin/bash -e
+﻿#!/usr/bin/env bash
+set -e
+# This entrypoint script prepares the database and then executes the given command.
+# When running Rails server, it will automatically run `rails db:prepare` 
+# to create or migrate the database before starting the server.
 
 # Enable jemalloc for reduced memory usage and latency.
 if [ -z "${LD_PRELOAD+x}" ] && [ -f /usr/lib/*/libjemalloc.so.2 ]; then
@@ -6,8 +10,9 @@ if [ -z "${LD_PRELOAD+x}" ] && [ -f /usr/lib/*/libjemalloc.so.2 ]; then
 fi
 
 # If running the rails server then create or migrate existing database
-if [ "${1}" == "./bin/rails" ] && [ "${2}" == "server" ]; then
-  ./bin/rails db:prepare
+# Changed to correspond to the new CMD in the Dockerfile which includes "bundle" and "exec"
+if [ "${1}" == "bundle" ] && [ "${2}" == "exec" ] && [ "${3}" == "rails" ] && [ "${4}" == "server" ]; then
+  bundle exec rails db:prepare
 fi
 
 exec "${@}"
